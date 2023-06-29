@@ -1,4 +1,4 @@
-POST http://localhost:5500/api/item
+POST http://localhost:5600/api/item
 Content-Type: application/json
 
 {
@@ -11,13 +11,13 @@ Content-Type: application/json
 ###
 
 
-GET http://localhost:5500/api/items
+GET http://localhost:5600/api/items
 Content-Type: application/json
 
 
 ###
 
-PUT http://localhost:5500/api/item/649b1aa4a946935da2bd62b5
+PUT http://localhost:5600/api/item/649b1aa4a946935da2bd62b5
 Content-Type: application/json
 
 {
@@ -27,11 +27,11 @@ Content-Type: application/json
 ###
 
 
-DELETE http://localhost:5500/api/item/649b1aa4a946935da2bd62b5
+DELETE http://localhost:5600/api/item/649b1aa4a946935da2bd62b5
 Content-Type: application/json
 
 ###
-PUT http://localhost:5500/api/item/done/649c7c3828ff414876774841
+PUT http://localhost:5600/api/item/done/649c7c3828ff414876774841
 Content-Type: application/json
 
 {
@@ -39,6 +39,6 @@ Content-Type: application/json
 }
 
 ###
-GET  http://localhost:5500/api/items/life
+GET  http://localhost:5600/api/items/life
 Content-Type: application/json
 

@@ -32,8 +32,8 @@ function App() {
 
   const [listItems, setListItems] = useState([]);
   const [isUpdating, setIsUpdating] = useState("");
+  const [life, setLife] = useState([]);
 
-  const [err, setErr] = useState(false);
   //States Finish
 
   //Update Add Priority & Tag
@@ -197,6 +197,13 @@ function App() {
     }
   };
 
+  //get lifetag items
+  const getLifeTagItems = async () => {
+    const res = await axios.get("http://localhost:5600/api/items/life");
+    setLife([...res.data]);
+    setListItems([]);
+  }
+
   return (
     <div className="w-screen flex justify-center bg-gradient-to-t from-lime-300 via-lime-500 to-lime-800 min-h-screen max-md:w-screen ">
       <div className="w-[800px] flex justify-center my-8 flex-col items-center gap-8 bg-slate-100 py-10 px-6 rounded-2xl relative max-md:w-[400px]">
@@ -243,11 +250,52 @@ function App() {
             </div>
           </div>
         </form>
+        <div className="flex gap-5 items-center">
+        Filter: 
+        <Button
+        variant="contained"
+        size="small"
+        type="submit"
+        color="warning"
+        onClick={()=>window.location.reload(true) }
+      >
+        See All
+      </Button>
+      <Button
+        variant="contained"
+        size="small"
+        type="submit"
+        color="warning"
+        onClick={()=>getLifeTagItems()}
+      >
+        Life Tag
+      </Button>
+      </div>
+      
         {/*Description Component*/}
         <TodoDesc />
-        {err && <p className="text-red-700">Error</p>}
+     
         {/*All Todo Items*/}
         {listItems.map((item) => {
+          return (
+            <div className=" h-100  gap-5 w-full mt-4" key={item._id}>
+              <div className="flex gap-5 h-100 items-center justify-between w-full">
+                {isUpdating === item._id ? (
+                  renderUpdateForm()
+                ) : (
+                  <TodoItem
+                    item={item}
+                    listItems={listItems}
+                    setListItems={setListItems}
+                    setIsUpdating={setIsUpdating}
+                  />
+                )}
+              </div>
+              <hr className="w-full border border-black-600 border-opacity-90 color-black mt-5" />
+            </div>
+          );
+        })}
+        {life.map((item) => {
           return (
             <div className=" h-100  gap-5 w-full mt-4" key={item._id}>
               <div className="flex gap-5 h-100 items-center justify-between w-full">

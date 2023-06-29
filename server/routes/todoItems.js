@@ -59,5 +59,15 @@ router.put('/api/item/done/:id', async (req,res) => {
     }
 })
 
+//Categorize
+router.get('/api/items/life', async (req,res) => {
+    try {
+        const life = await todoItemModel.find({tags: { $eq: ["Life"]}});
+        res.status(200).json(life)
+    } catch (error) {
+        console.log(error)
+    }
+})
+
 //export router
 module.exports = router;

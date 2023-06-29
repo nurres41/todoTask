@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 
-// cors installed because of localhost:3000 port to localhost:5500 req.
+// cors installed because of localhost:3000 port to localhost:5600 req.
 const cors = require('cors');
 
 //For dotenv
@@ -14,7 +14,7 @@ const app = express();
 app.use(express.json());
 
 //Port 
-const PORT = process.env.PORT || 5500;
+const PORT = process.env.PORT || 5600;
 
 //use cors
 app.use(cors())
