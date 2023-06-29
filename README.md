@@ -76,7 +76,7 @@ Users can add new things to be done, see and update the things they have added. 
 
 **İstemci:** React, TailwindCSS
 
-**Sunucu:** Node, Express
+**Sunucu:** NodeJs, Express
 
 **Database:** MongoDB
 
