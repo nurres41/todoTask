@@ -59,6 +59,16 @@ Users can add new things to be done, see and update the things they have added. 
 | `id`      | 
 
 
+#### Get Life Tag Data
+
+```http
+  GET /api/items/life
+```
+| Type    |
+| :------- | 
+| `Array` | 
+
+
 
 
   
